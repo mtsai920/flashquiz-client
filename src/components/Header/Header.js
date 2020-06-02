@@ -6,6 +6,7 @@ const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link href="#create-collection">Create</Nav.Link>
   </Fragment>
 )
 
@@ -18,12 +19,12 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link to="/">Home</Nav.Link>
+    <Nav.Link href="/">Home</Nav.Link>
   </Fragment>
 )
 
 const Header = ({ user }) => (
-  <Navbar className="navbar" variant="dark" expand="md">
+  <Navbar className="navbar" bg="dark" variant="dark" expand="md">
     <Navbar.Brand href="#">
       FlashQuiz
     </Navbar.Brand>

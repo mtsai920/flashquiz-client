@@ -8,6 +8,8 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Home from '../Home/Home'
+import CollectionCreate from '../Collections/CollectionCreate'
 
 class App extends Component {
   constructor () {
@@ -42,6 +44,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Home/>
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -53,6 +58,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/create-collection' render={() => (
+            <CollectionCreate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
