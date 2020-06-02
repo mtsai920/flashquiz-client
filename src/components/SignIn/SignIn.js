@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import { signIn } from '../../api/auth'
 import messages from '../AutoDismissAlert/messages'
@@ -80,6 +80,9 @@ class SignIn extends Component {
             >
               Submit
             </Button>
+            <Link className="back-button" to={'/'}>
+              <Button>Back</Button>
+            </Link>
           </Form>
         </div>
       </div>
