@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 const Home = function () {
   return (
     <div>
-      <h1>Shalomie Homie. Welcome to my website.</h1>
+      <h1>Welcome to FlashQuiz</h1>
       <Link to={'/sign-in'}>
         <Button>Sign In</Button>
       </Link>
