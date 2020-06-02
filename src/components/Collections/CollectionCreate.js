@@ -49,7 +49,7 @@ const CollectionCreate = (props) => {
   }
 
   if (collectionId) {
-    return <Redirect to={'/'} />
+    return <Redirect to={`/collections/${collectionId}`} />
   }
 
   return (

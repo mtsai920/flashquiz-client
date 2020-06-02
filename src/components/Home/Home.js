@@ -9,7 +9,7 @@ const Home = function () {
       <Link to={'/sign-in'}>
         <Button>Sign In</Button>
       </Link>
-      <Link to={'/sign-up'}>
+      <Link className="auth-button" to={'/sign-up'}>
         <Button>Sign Up</Button>
       </Link>
     </div>

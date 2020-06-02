@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Home from '../Home/Home'
 import CollectionCreate from '../Collections/CollectionCreate'
 import CollectionIndex from '../Collections/CollectionIndex'
+import CollectionShow from '../Collections/CollectionShow'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/collections' render={() => (
             <CollectionIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='collections/:id' render={() => (
+            <CollectionShow msgAlert={this.msgAlert} user={user} match={this.props.params} />
           )} />
         </main>
       </Fragment>
