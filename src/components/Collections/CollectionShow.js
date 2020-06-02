@@ -20,6 +20,7 @@ const CollectionShow = (props) => {
   return (
     <div>
       <h1>Collection Show</h1>
+      <button>Delete</button>
     </div>
   )
 }

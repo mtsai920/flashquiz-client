@@ -9,6 +9,7 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Home from '../Home/Home'
+import About from '../About/About'
 import CollectionCreate from '../Collections/CollectionCreate'
 import CollectionIndex from '../Collections/CollectionIndex'
 import CollectionShow from '../Collections/CollectionShow'
@@ -55,6 +56,9 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
+          <Route exact path='/about' render={() => (
+            <About />
+          )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
           )} />
@@ -67,7 +71,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/collections' render={() => (
             <CollectionIndex msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='collections/:id' render={() => (
+          <AuthenticatedRoute user={user} exact path='/collections/:id' render={() => (
             <CollectionShow msgAlert={this.msgAlert} user={user} match={this.props.params} />
           )} />
         </main>
