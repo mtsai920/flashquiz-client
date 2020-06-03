@@ -30,8 +30,8 @@ const CollectionIndex = (props) => {
 
   const showCollections = collections.map(collection => (
     <div key={collection._id}>
-      <Link to={`/collections/${collection._id}`}>{collection.title}</Link>
-      <h3>Description: {collection.description}</h3>
+      <Link className="coll-index-title" to={`/collections/${collection._id}`}>{collection.title}</Link>
+      <h4>{collection.description}</h4>
       <hr />
     </div>
   ))

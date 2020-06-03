@@ -36,7 +36,7 @@ const CollectionCreate = (props) => {
       .then(() => msgAlert({
         heading: 'Success!',
         variant: 'success',
-        message: 'Collection created'
+        message: 'Collection created.'
       }))
       .catch((error) => {
         msgAlert({
