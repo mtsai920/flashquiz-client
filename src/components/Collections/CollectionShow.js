@@ -4,6 +4,7 @@ import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 const CollectionShow = (props) => {
   const [collection, setCollection] = useState({
@@ -36,7 +37,7 @@ const CollectionShow = (props) => {
       })
   }, [])
 
-  const EditModal = function (props) {
+  const CreateCard = function (props) {
     return (
       <Modal
         {...props}
@@ -46,16 +47,20 @@ const CollectionShow = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-             Modal heading
+             Create a Card
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-           Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-           dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-           consectetur ac, vestibulum at eros.
-          </p>
+          <Form>
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Term</Form.Label>
+              <Form.Control type="text" />
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Definition</Form.Label>
+              <Form.Control as="textarea" rows="3" />
+            </Form.Group>
+          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
@@ -98,13 +103,13 @@ const CollectionShow = (props) => {
       <h2>{collection.description}</h2>
       <Button onClick={destroy}>Delete</Button>
       <Button onClick={() => setModalShow(true)}>
-        Edit
+        Create a Card
       </Button>
       <Link to={'/collections'}>
         <Button>Back to all Collections</Button>
       </Link>
 
-      <EditModal
+      <CreateCard
         show={modalShow}
         onHide={() => setModalShow(false)}
       />

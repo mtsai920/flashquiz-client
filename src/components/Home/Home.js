@@ -6,11 +6,11 @@ const Home = function () {
   return (
     <div>
       <h1>Welcome to FlashQuiz</h1>
-      <Link to={'/sign-in'}>
-        <Button>Sign In</Button>
-      </Link>
-      <Link className="auth-button" to={'/sign-up'}>
+      <Link to={'/sign-up'}>
         <Button>Sign Up</Button>
+      </Link>
+      <Link className="auth-button" to={'/sign-in'}>
+        <Button>Sign In</Button>
       </Link>
     </div>
   )
