@@ -13,6 +13,7 @@ import About from '../About/About'
 import CollectionCreate from '../Collections/CollectionCreate'
 import CollectionIndex from '../Collections/CollectionIndex'
 import CollectionShow from '../Collections/CollectionShow'
+import CollectionEdit from '../Collections/CollectionEdit'
 
 class App extends Component {
   constructor () {
@@ -73,6 +74,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/collections/:id' render={() => (
             <CollectionShow msgAlert={this.msgAlert} user={user} match={this.props.params} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/collections/:id/edit' render={() => (
+            <CollectionEdit msgAlert={this.msgAlert} user={user} match={this.props.pararms} />
           )} />
         </main>
       </Fragment>

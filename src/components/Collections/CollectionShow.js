@@ -6,8 +6,8 @@ import Button from 'react-bootstrap/Button'
 
 const CollectionShow = (props) => {
   const [collection, setCollection] = useState({
-    title: null,
-    description: null,
+    title: '',
+    description: '',
     cards: []
   })
 
@@ -51,6 +51,13 @@ const CollectionShow = (props) => {
         })
       })
       .then(() => setDeleted(true))
+      .catch((error) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to delete collection due to error: ' + error.message
+        })
+      })
   }
 
   if (!collection) {
@@ -68,6 +75,9 @@ const CollectionShow = (props) => {
       <h1>{collection.title}</h1>
       <h2>{collection.description}</h2>
       <Button onClick={destroy}>Delete</Button>
+      <Link to={`${match.params.id}/edit`}>
+        <Button>Edit</Button>
+      </Link>
       <Link to={'/collections'}>
         <Button>Back to all Collections</Button>
       </Link>

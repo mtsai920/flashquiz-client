@@ -45,7 +45,6 @@ const CollectionCreate = (props) => {
           message: 'Failed to create collection due to error: ' + error.message
         })
       })
-      .catch(console.error)
   }
 
   if (collectionId) {
