@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import { Col, Row, Form } from 'react-bootstrap'
@@ -12,7 +12,9 @@ const CollectionEdit = (props) => {
     cards: []
   })
 
-  const { match, user } = props
+  const [updated, setUpdated] = useState(false)
+
+  const { match, user, msgAlert } = props
 
   useEffect(() => {
     axios({
@@ -26,15 +28,47 @@ const CollectionEdit = (props) => {
       .catch(console.err)
   }, [])
 
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    axios({
+      url: `${apiUrl}/collections/${match.params.id}`,
+      method: 'PATCH',
+      data: { collection },
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(setUpdated(true))
+      .then(() => {
+        msgAlert({
+          heading: 'Success!',
+          variant: 'success',
+          message: 'Collection successfully updated.'
+        })
+      })
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to update collection due to ' + err.message
+        })
+      })
+  }
+
   const handleChange = event => {
     event.persist()
     setCollection(recipe => ({ ...collection, [event.target.name]: event.target.value }))
   }
 
+  if (updated) {
+    return <Redirect to={`/collections/${props.match.params.id}`} />
+  }
+
   return (
     <div>
       <h2>Edit your Collection</h2>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group as={Row} controlId="formPlaintextPassword">
           <Form.Label column sm="2">
             Title
@@ -63,6 +97,9 @@ const CollectionEdit = (props) => {
           </Col>
         </Form.Group>
         <Button type="submit">Save</Button>
+        <Link to={`/collections/${match.params.id}`}>
+          <Button>Back</Button>
+        </Link>
       </Form>
     </div>
   )
