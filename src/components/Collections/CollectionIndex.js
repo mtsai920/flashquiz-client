@@ -23,7 +23,7 @@ const CollectionIndex = (props) => {
   if (collections.length === 0) {
     return (
       <div>
-        <h2>Loading...</h2>
+        <h2>You have no collections yet!</h2>
       </div>
     )
   }

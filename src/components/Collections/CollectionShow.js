@@ -34,6 +34,19 @@ const CollectionShow = (props) => {
       })
   }, [])
 
+  // Axios call to retrieve all cards
+  useEffect(() => {
+    axios({
+      url: `${apiUrl}/cards`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => console.log(res))
+      .catch(console.err)
+  }, [])
+
   // Function to delete collection
   const destroy = () => {
     axios({
