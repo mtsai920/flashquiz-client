@@ -33,19 +33,13 @@ const CollectionShow = (props) => {
         })
       })
   }, [])
-
+  console.log(match.params.id)
   useEffect(() => {
     axios({
-      url: `${apiUrl}/cards`,
+      url: `${apiUrl}/card/${match.params.id}`,
       method: 'GET',
       headers: {
-        'Authorization': `Token token=${user.token}`,
-        'Content-type': 'application/json'
-      },
-      data: {
-        card: {
-          collectionId: match.params.id
-        }
+        'Authorization': `Token token=${user.token}`
       }
     })
       .then(res => console.log(res))
