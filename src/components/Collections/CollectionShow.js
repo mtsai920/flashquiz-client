@@ -116,16 +116,25 @@ const CollectionShow = (props) => {
 
   return (
     <div>
-      <h1>{collection.title}</h1>
-      <h2>{collection.description}</h2>
-      <Button onClick={destroy}>Delete</Button>
-      <Link to={`${match.params.id}/edit`}>
-        <Button>Edit</Button>
-      </Link>
-      <Link to={'/collections'}>
-        <Button>Back to all Collections</Button>
-      </Link>
-      <div>
+      <div className="show-col-div">
+        <div>
+          <h1>{collection.title}</h1>
+          <h2>{collection.description}</h2>
+        </div>
+        <div className="show-col-buttons">
+          <Button onClick={destroy}>Delete</Button>
+          <br />
+          <Link to={`${match.params.id}/edit`}>
+            <Button className="show-col-edit">Edit</Button>
+          </Link>
+          <br />
+          <Link to={'/collections'}>
+            <Button>Back to all Collections</Button>
+          </Link>
+        </div>
+      </div>
+      <div className="card-create">
+        <hr />
         <h3>Create a Card</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formGroupEmail">
@@ -145,6 +154,7 @@ const CollectionShow = (props) => {
           </Form.Group>
           <Button type="submit">Create Card</Button>
         </Form>
+        <hr />
       </div>
     </div>
   )

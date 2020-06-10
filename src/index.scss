@@ -14,6 +14,11 @@ $gray: #808080;
   margin-left: 10px;
 }
 
+.show-col-edit {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 // --------- Text --------- //
 
 .coll-index-title {
@@ -22,11 +27,19 @@ $gray: #808080;
 
 // --------- Home --------- //
 
-// --------- Show Page --------- //
+// --------- Collection Index --------- //
 
-.show-col-div {
+.index-col-div {
   border: 1px solid $gray;
   border-radius: 5px;
   margin-bottom: 1rem;
   padding-left: 1rem;
+}
+
+// --------- Collection Show --------- //
+
+.show-col-div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
 }
