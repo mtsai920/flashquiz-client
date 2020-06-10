@@ -3,17 +3,29 @@ import { withRouter, Redirect, Link } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 const CollectionShow = (props) => {
+  const { match, user, msgAlert } = props
+
   const [collection, setCollection] = useState({
     title: '',
     description: '',
     cards: []
   })
 
+  const [card, setCard] = useState({
+    term: '',
+    definition: '',
+    collectionId: match.params.id
+  })
+
   const [deleted, setDeleted] = useState(false)
 
-  const { match, user, msgAlert } = props
+  const handleChange = event => {
+    event.persist()
+    setCard(card => ({ ...card, [event.target.name]: event.target.value }))
+  }
 
   // Axios call for rendering collection information on page
   useEffect(() => {
@@ -33,7 +45,7 @@ const CollectionShow = (props) => {
         })
       })
   }, [])
-  console.log(match.params.id)
+
   useEffect(() => {
     axios({
       url: `${apiUrl}/card/${match.params.id}`,
@@ -45,6 +57,26 @@ const CollectionShow = (props) => {
       .then(res => console.log(res))
       .catch(console.err)
   }, [])
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    axios({
+      url: `${apiUrl}/cards`,
+      method: 'POST',
+      data: { card },
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => console.log(res))
+      .then(() => msgAlert({
+        heading: 'Success!',
+        variant: 'success',
+        message: 'Card created!'
+      }))
+      .catch(console.error)
+  }
 
   // Function to delete collection
   const destroy = () => {
@@ -93,6 +125,27 @@ const CollectionShow = (props) => {
       <Link to={'/collections'}>
         <Button>Back to all Collections</Button>
       </Link>
+      <div>
+        <h3>Create a Card</h3>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="formGroupEmail">
+            <Form.Label>Term</Form.Label>
+            <Form.Control
+              type="text"
+              name="term"
+              value={card.term}
+              onChange={handleChange} />
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Definition</Form.Label>
+            <Form.Control as="textarea" rows="3"
+              name="definition"
+              value={card.definition}
+              onChange={handleChange} />
+          </Form.Group>
+          <Button type="submit">Create Card</Button>
+        </Form>
+      </div>
     </div>
   )
 }

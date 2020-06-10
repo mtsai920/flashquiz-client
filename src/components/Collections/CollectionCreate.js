@@ -18,7 +18,7 @@ const CollectionCreate = (props) => {
 
   const handleChange = event => {
     event.persist()
-    setCollection(recipe => ({ ...collection, [event.target.name]: event.target.value }))
+    setCollection(collection => ({ ...collection, [event.target.name]: event.target.value }))
   }
 
   const handleSubmit = event => {
