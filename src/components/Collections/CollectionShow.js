@@ -34,13 +34,18 @@ const CollectionShow = (props) => {
       })
   }, [])
 
-  // Axios call to retrieve all cards
   useEffect(() => {
     axios({
       url: `${apiUrl}/cards`,
       method: 'GET',
       headers: {
-        'Authorization': `Token token=${user.token}`
+        'Authorization': `Token token=${user.token}`,
+        'Content-type': 'application/json'
+      },
+      data: {
+        card: {
+          collectionId: match.params.id
+        }
       }
     })
       .then(res => console.log(res))
