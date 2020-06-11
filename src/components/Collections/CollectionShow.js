@@ -61,6 +61,18 @@ const CollectionShow = (props) => {
       .catch(console.err)
   }, [])
 
+  const getCards = () => {
+    axios({
+      url: `${apiUrl}/card/${match.params.id}`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setCards(res.data.cards))
+      .catch(console.err)
+  }
+
   // Submit function to create card
   const handleSubmit = event => {
     event.preventDefault()
@@ -73,8 +85,8 @@ const CollectionShow = (props) => {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => console.log(res))
-      .then(res => setCards(res.data.card))
+      .then(() => setCard({ term: '', definition: '' }))
+      .then(() => getCards())
       .then(() => msgAlert({
         heading: 'Success!',
         variant: 'success',
@@ -111,14 +123,16 @@ const CollectionShow = (props) => {
 
   let showCards = cards.map(card => (
     <div className="flip-card" key={card._id}>
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          <h3>{card.term}</h3>
+      <Link to={`/cards/${card._id}`}>
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
+            <h3>{card.term}</h3>
+          </div>
+          <div className="flip-card-back">
+            <h4>{card.definition}</h4>
+          </div>
         </div>
-        <div className="flip-card-back">
-          <h4>{card.definition}</h4>
-        </div>
-      </div>
+      </Link>
     </div>
   ))
 
