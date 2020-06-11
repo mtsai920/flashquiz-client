@@ -15,8 +15,8 @@ $gray: #808080;
 }
 
 .show-col-edit {
-  margin-top: 5px;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 // --------- Text --------- //
@@ -42,4 +42,44 @@ $gray: #808080;
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
+}
+
+.flip-card {
+  background-color: transparent;
+  border: 1px solid $gray;
+  height: 200px;
+  margin-left: 20%;
+  margin-top: 2rem;
+  perspective: 1000px;
+  width: 500px;
+}
+
+.flip-card-inner {
+  height: 100%;
+  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform .8s;
+  width: 100%;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #bbb;
+  transform: rotateY(180deg);
 }

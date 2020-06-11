@@ -73,6 +73,8 @@ const CollectionShow = (props) => {
         'Authorization': `Token token=${user.token}`
       }
     })
+      .then(res => console.log(res))
+      .then(res => setCards(res.data.card))
       .then(() => msgAlert({
         heading: 'Success!',
         variant: 'success',
@@ -108,9 +110,15 @@ const CollectionShow = (props) => {
   }
 
   let showCards = cards.map(card => (
-    <div key={card._id}>
-      <h3>{card.term}</h3>
-      <h4>{card.definition}</h4>
+    <div className="flip-card" key={card._id}>
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+          <h3>{card.term}</h3>
+        </div>
+        <div className="flip-card-back">
+          <h4>{card.definition}</h4>
+        </div>
+      </div>
     </div>
   ))
 
@@ -171,6 +179,7 @@ const CollectionShow = (props) => {
         <hr />
       </div>
       <div>
+        <h3>View your Cards</h3>
         <ul>
           {showCards}
         </ul>
