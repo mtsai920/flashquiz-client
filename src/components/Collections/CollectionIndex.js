@@ -37,7 +37,7 @@ const CollectionIndex = (props) => {
 
   return (
     <div>
-      <h2>Select a Collection</h2>
+      <h1>Select a Collection</h1>
       <ul>
         {showCollections}
       </ul>

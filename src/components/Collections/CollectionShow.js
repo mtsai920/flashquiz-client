@@ -20,6 +20,8 @@ const CollectionShow = (props) => {
     collectionId: match.params.id
   })
 
+  const [cards, setCards] = useState([])
+
   const [deleted, setDeleted] = useState(false)
 
   const handleChange = event => {
@@ -46,6 +48,7 @@ const CollectionShow = (props) => {
       })
   }, [])
 
+  // Axios call to retrieve all cards within the collection
   useEffect(() => {
     axios({
       url: `${apiUrl}/card/${match.params.id}`,
@@ -54,10 +57,11 @@ const CollectionShow = (props) => {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => console.log(res))
+      .then(res => setCards(res.data.cards))
       .catch(console.err)
   }, [])
 
+  // Submit function to create card
   const handleSubmit = event => {
     event.preventDefault()
 
@@ -69,7 +73,6 @@ const CollectionShow = (props) => {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => console.log(res))
       .then(() => msgAlert({
         heading: 'Success!',
         variant: 'success',
@@ -102,6 +105,17 @@ const CollectionShow = (props) => {
           message: 'Failed to delete collection due to error: ' + error.message
         })
       })
+  }
+
+  let showCards = cards.map(card => (
+    <div key={card._id}>
+      <h3>{card.term}</h3>
+      <h4>{card.definition}</h4>
+    </div>
+  ))
+
+  if (cards.length === 0) {
+    showCards = 'You have no cards in this collection yet! Create one to get studying.'
   }
 
   if (!collection) {
@@ -155,6 +169,11 @@ const CollectionShow = (props) => {
           <Button type="submit">Create Card</Button>
         </Form>
         <hr />
+      </div>
+      <div>
+        <ul>
+          {showCards}
+        </ul>
       </div>
     </div>
   )
