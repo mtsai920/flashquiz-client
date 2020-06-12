@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const CardShow = (props) => {
-  console.log(props)
+  // console.log(props)
 
   const [card, setCard] = useState({
     term: '',
@@ -15,6 +15,8 @@ const CardShow = (props) => {
   })
 
   const [deleted, setDeleted] = useState(null)
+
+  const [updated, setUpdated] = useState(false)
 
   const { match, user, location, msgAlert } = props
 
@@ -61,6 +63,7 @@ const CardShow = (props) => {
       }
     })
       .then(res => setCard(res.data.card))
+      .then(() => setUpdated(true))
       .catch(console.err)
   }
 
@@ -69,7 +72,7 @@ const CardShow = (props) => {
     setCard(card => ({ ...card, [event.target.name]: event.target.value }))
   }
 
-  if (deleted) {
+  if (deleted || updated) {
     return <Redirect to={`/collections/${location.card.collectionId}`}/>
   }
 
