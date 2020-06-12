@@ -49,29 +49,41 @@ const CardShow = (props) => {
       .catch(console.err)
   }
 
-  if (deleted) {
-    return <Redirect to={`/collections/${location.card.collectionId}`}/>
+  const onSubmit = event => {
+    event.preventDefault()
+
+    axios({
+      url: `${apiUrl}/cards/${match.params.id}`,
+      method: 'PATCH',
+      data: { card },
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+      .then(res => setCard(res.data.card))
+      .catch(console.err)
   }
 
-  if (!card) {
-    return (
-      <div>
-        <h2>Loading...</h2>
-      </div>
-    )
+  const handleChange = event => {
+    event.persist()
+    setCard(card => ({ ...card, [event.target.name]: event.target.value }))
+  }
+
+  if (deleted) {
+    return <Redirect to={`/collections/${location.card.collectionId}`}/>
   }
 
   return (
     <div>
       <h2>Update your Card</h2>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Form.Group controlId="formGroupEmail">
           <Form.Label>Term</Form.Label>
           <Form.Control
             type="text"
             name="term"
             value={card.term}
-            // onChange={handleChange}
+            onChange={handleChange}
             required />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -80,7 +92,7 @@ const CardShow = (props) => {
             maxLength="350"
             name="definition"
             value={card.definition}
-            // onChange={handleChange}
+            onChange={handleChange}
             required />
         </Form.Group>
         <Button type="submit">Update Card</Button>
