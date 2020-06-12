@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const CardShow = (props) => {
-  // console.log(props)
+  console.log(props)
 
   const [card, setCard] = useState({
     term: '',
@@ -14,7 +14,7 @@ const CardShow = (props) => {
     collectionId: ''
   })
 
-  const [deleted, setDeleted] = useState(null)
+  const [deleted, setDeleted] = useState(false)
 
   const [updated, setUpdated] = useState(false)
 
@@ -53,7 +53,6 @@ const CardShow = (props) => {
 
   const onSubmit = event => {
     event.preventDefault()
-
     axios({
       url: `${apiUrl}/cards/${match.params.id}`,
       method: 'PATCH',
@@ -62,7 +61,7 @@ const CardShow = (props) => {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => setCard(res.data.card))
+      .then(res => console.log(res, 'res'))
       .then(() => setUpdated(true))
       .catch(console.err)
   }
