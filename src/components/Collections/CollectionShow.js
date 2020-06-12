@@ -90,7 +90,7 @@ const CollectionShow = (props) => {
       .then(() => msgAlert({
         heading: 'Success!',
         variant: 'success',
-        message: 'Card created!'
+        message: 'Card created! It has been added to the bottom of the page. '
       }))
       .catch(console.error)
   }
@@ -123,7 +123,14 @@ const CollectionShow = (props) => {
 
   let showCards = cards.map(card => (
     <div className="flip-card" key={card._id}>
-      <Link to={`/cards/${card._id}`}>
+      <Link to={{
+        pathname: `/cards/${card._id}`,
+        card: {
+          term: card.term,
+          definition: card.definition,
+          collectionId: match.params.id
+        }
+      }}>
         <div className="flip-card-inner">
           <div className="flip-card-front">
             <h3>{card.term}</h3>
@@ -179,14 +186,17 @@ const CollectionShow = (props) => {
               type="text"
               name="term"
               value={card.term}
-              onChange={handleChange} />
+              onChange={handleChange}
+              required />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Definition</Form.Label>
             <Form.Control as="textarea" rows="3"
+              maxLength="350"
               name="definition"
               value={card.definition}
-              onChange={handleChange} />
+              onChange={handleChange}
+              required />
           </Form.Group>
           <Button type="submit">Create Card</Button>
         </Form>
@@ -194,6 +204,7 @@ const CollectionShow = (props) => {
       </div>
       <div>
         <h3>View your Cards</h3>
+        <h4>Click on a card to update, edit, or delete.</h4>
         <ul>
           {showCards}
         </ul>

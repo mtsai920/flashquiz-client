@@ -80,7 +80,7 @@ class App extends Component {
             <CollectionEdit msgAlert={this.msgAlert} user={user} match={this.props.pararms} />
           )} />
           <AuthenticatedRoute user={user} exact path='/cards/:id' render={() => (
-            <CardShow msgAlert={this.msgAlert} user={user} match={this.props.params} />
+            <CardShow msgAlert={this.msgAlert} user={user} match={this.props.params}/>
           )} />
         </main>
       </Fragment>

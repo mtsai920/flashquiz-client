@@ -65,6 +65,7 @@ const CollectionCreate = (props) => {
               name="title"
               value={collection.title}
               onChange={handleChange}
+              required
             />
           </Col>
         </Form.Group>
@@ -79,6 +80,7 @@ const CollectionCreate = (props) => {
               name="description"
               value={collection.description}
               onChange={handleChange}
+              required
             />
           </Col>
         </Form.Group>
