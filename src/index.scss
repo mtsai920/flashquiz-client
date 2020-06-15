@@ -1,8 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
 
+@import '~bootstrap/scss/bootstrap';
+
 // --------- Colors --------- //
 $gray: #808080;
+$dark-gray: #525152;
+$yellow: #FFBA08;
+$dark-yellow: #F5AF00;
+$white: #fff;
+$white-header: rgba(244, 244, 248, .7);
+$blue: #85e9ff;
+$dark-blue: #032b43;
+$green: #1B9D8C;
+$black: #000;
 
+// --------- Background --------- //
+html, #root {
+  background-color: $green;
+  background-image: url("https://www.transparenttextures.com/patterns/diagonal-striped-brick.png");
+}
+
+* {
+  font-family: 'Suez One', serif;
+}
+
+hr {
+  background-color: $dark-blue;
+  height: 2px;
+}
+
+// --------- Navbar --------- //
+.navbar {
+  background-color: $white-header;
+  margin-bottom: 2rem;
+}
+
+.navbar-brand {
+  font-family: 'Suez One', serif;
+  font-size: 30px;
+}
 
 // --------- Buttons --------- //
 
@@ -22,7 +58,12 @@ $gray: #808080;
 // --------- Text --------- //
 
 .coll-index-title {
+  color: $yellow;
   font-size: 37px;
+
+  &:hover {
+    color: $dark-yellow;
+  }
 }
 
 // --------- Home --------- //
@@ -30,7 +71,7 @@ $gray: #808080;
 // --------- Collection Index --------- //
 
 .index-col-div {
-  border: 1px solid $gray;
+  border: 1px solid $dark-blue;
   border-radius: 5px;
   margin-bottom: 1rem;
   padding-left: 1rem;
@@ -46,7 +87,7 @@ $gray: #808080;
 
 .flip-card {
   background-color: transparent;
-  border: 1px solid $gray;
+  border: 1px solid $dark-blue;
   height: 225px;
   margin-left: 20%;
   margin-top: 2rem;
@@ -67,7 +108,8 @@ $gray: #808080;
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   backface-visibility: hidden;
   height: 100%;
   position: absolute;
@@ -75,15 +117,16 @@ $gray: #808080;
 }
 
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
-  padding: 30px 0;
+  background-color: $white;
+  color: $black;
+  padding-top: 15%;
 }
 
 .flip-card-back {
-  background-color: #bbb;
-  color: black;
-  padding: 20px 0;
+  background-color: $white;
+  color: $black;
+  padding-top: 20px;
+  padding-bottom: 20px;
   transform: rotateY(180deg);
 }
 

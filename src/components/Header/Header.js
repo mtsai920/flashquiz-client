@@ -23,8 +23,8 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar className="navbar" bg="dark" variant="dark" expand="md">
-    <Navbar.Brand href="#">
+  <Navbar className="navbar sticky-top" variant="light" expand="md">
+    <Navbar.Brand href="#" className="navbar-brand">
       FlashQuiz
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
