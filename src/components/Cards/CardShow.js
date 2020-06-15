@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const CardShow = (props) => {
-  console.log(props)
+  // console.log(props)
 
   const [card, setCard] = useState({
     term: '',
@@ -61,8 +61,14 @@ const CardShow = (props) => {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => console.log(res, 'res'))
       .then(() => setUpdated(true))
+      .then(() => {
+        msgAlert({
+          heading: 'Updated!',
+          variant: 'success',
+          message: 'Card has been successfully updated.'
+        })
+      })
       .catch(console.err)
   }
 
@@ -99,6 +105,9 @@ const CardShow = (props) => {
         </Form.Group>
         <Button type="submit">Update Card</Button>
         <Button onClick={destroy}>Delete</Button>
+        <Link to={`/collections/${location.card.collectionId}`}>
+          <Button>Back</Button>
+        </Link>
       </Form>
     </div>
   )
