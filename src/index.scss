@@ -4,14 +4,15 @@
 
 // --------- Colors --------- //
 
-$link: #C83E4D;
-$link-hover: #BF3646;
+$red: #C83E4D;
+$link: #1C448E;
+$link-hover: #183977;
 $white: #fff;
 $white-header: rgba(244, 244, 248, .7);
-$blue: #053E61;
 $dark-blue: #032b43;
 $background: #8A9CA8;
 $yellow: #F4B860;
+$orange: #FAC05E;
 $black: #000;
 
 // --------- Background --------- //
@@ -24,10 +25,6 @@ html, #root {
 * {
   font-family: 'Suez One', serif;
 }
-
-// :not(.alert) {
-//   color: $white;
-// }
 
 hr {
   background-color: $black;
@@ -61,6 +58,15 @@ hr {
   margin-top: 5px;
 }
 
+.card-show-delete {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.col-edit-back {
+  margin-left: 10px;
+}
+
 // --------- Text --------- //
 
 .coll-index-title {
@@ -72,7 +78,25 @@ hr {
   }
 }
 
-// --------- Home --------- //
+// --------- About --------- //
+
+.about-heading {
+  color: $red;
+  text-decoration: underline;
+}
+
+.about-gs-div {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-link {
+  color: $link;
+
+  &:hover {
+    color: $link-hover;
+  }
+}
 
 // --------- Collection Index --------- //
 

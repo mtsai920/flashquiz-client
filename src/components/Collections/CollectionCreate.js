@@ -84,7 +84,7 @@ const CollectionCreate = (props) => {
             />
           </Col>
         </Form.Group>
-        <Button type="submit">Create Collection</Button>
+        <Button variant="light" type="submit">Create</Button>
       </Form>
     </div>
   )

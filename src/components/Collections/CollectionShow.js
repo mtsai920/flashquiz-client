@@ -165,14 +165,14 @@ const CollectionShow = (props) => {
           <h2>{collection.description}</h2>
         </div>
         <div className="show-col-buttons">
-          <Button onClick={destroy}>Delete</Button>
+          <Button variant="dark" onClick={destroy}>Delete</Button>
           <br />
           <Link to={`${match.params.id}/edit`}>
-            <Button className="show-col-edit">Edit</Button>
+            <Button variant="dark" className="show-col-edit">Edit</Button>
           </Link>
           <br />
           <Link to={'/collections'}>
-            <Button>Back to all Collections</Button>
+            <Button variant="dark">Back to all Collections</Button>
           </Link>
         </div>
       </div>
@@ -198,7 +198,7 @@ const CollectionShow = (props) => {
               onChange={handleChange}
               required />
           </Form.Group>
-          <Button type="submit">Create Card</Button>
+          <Button variant="dark" type="submit">Create Card</Button>
         </Form>
         <hr />
       </div>

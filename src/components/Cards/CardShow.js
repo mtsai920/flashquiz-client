@@ -103,10 +103,10 @@ const CardShow = (props) => {
             onChange={handleChange}
             required />
         </Form.Group>
-        <Button type="submit">Update Card</Button>
-        <Button onClick={destroy}>Delete</Button>
+        <Button variant="light" type="submit">Update Card</Button>
+        <Button variant="light" className="card-show-delete" onClick={destroy}>Delete</Button>
         <Link to={`/collections/${location.card.collectionId}`}>
-          <Button>Back</Button>
+          <Button variant="light">Back</Button>
         </Link>
       </Form>
     </div>

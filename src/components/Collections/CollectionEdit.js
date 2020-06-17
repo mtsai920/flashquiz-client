@@ -67,7 +67,7 @@ const CollectionEdit = (props) => {
 
   return (
     <div>
-      <h2>Edit your Collection</h2>
+      <h1>Edit your Collection</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row} controlId="formPlaintextPassword">
           <Form.Label column sm="2">
@@ -96,9 +96,9 @@ const CollectionEdit = (props) => {
             />
           </Col>
         </Form.Group>
-        <Button type="submit">Save</Button>
+        <Button variant="dark" type="submit">Save</Button>
         <Link to={`/collections/${match.params.id}`}>
-          <Button>Back</Button>
+          <Button variant="dark" className="col-edit-back">Back</Button>
         </Link>
       </Form>
     </div>
