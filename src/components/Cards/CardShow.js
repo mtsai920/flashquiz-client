@@ -82,7 +82,7 @@ const CardShow = (props) => {
   }
 
   return (
-    <div>
+    <div className="card-show-div">
       <h2>Update your Card</h2>
       <Form onSubmit={onSubmit}>
         <Form.Group controlId="formGroupEmail">

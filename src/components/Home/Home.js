@@ -8,7 +8,7 @@ const Home = function () {
       <div>
         <h1>Welcome to FlashQuiz</h1>
         <div>
-          <h3>A flashcard application for all of your studying needs. Sign up or sign in to get started.</h3>
+          <h3 className="home-h3">A flashcard application for all of your studying needs. Sign up or sign in to get started.</h3>
         </div>
         <Link to={'/sign-up'}>
           <Button variant="light">Sign Up</Button>
