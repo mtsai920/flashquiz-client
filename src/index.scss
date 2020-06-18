@@ -9,6 +9,7 @@ $link: #1C448E;
 $link-hover: #183977;
 $white: #fff;
 $white-header: rgba(244, 244, 248, .7);
+$coll-div: rgba(244, 244, 248, .5);
 $dark-blue: #032b43;
 $background: #8A9CA8;
 $yellow: #F4B860;
@@ -101,10 +102,30 @@ hr {
 // --------- Collection Index --------- //
 
 .index-col-div {
-  border: 1px solid $dark-blue;
+  background-color: $coll-div;
+  border: 1px solid $background;
   border-radius: 5px;
   margin-bottom: 1rem;
+  margin-right: 2rem;
   padding-left: 1rem;
+}
+
+// --------- Collection Edit --------- //
+
+.col-edit-div {
+  background-color: $coll-div;
+  border: 1px solid $background;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+// --------- Collection Create --------- //
+
+.col-create-div {
+  background-color: $coll-div;
+  border: 1px solid $background;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 // --------- Collection Show --------- //

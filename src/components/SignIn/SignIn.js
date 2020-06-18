@@ -75,13 +75,13 @@ class SignIn extends Component {
               />
             </Form.Group>
             <Button
-              variant="primary"
+              variant="light"
               type="submit"
             >
               Submit
             </Button>
             <Link className="back-button" to={'/'}>
-              <Button>Back</Button>
+              <Button variant="light">Back</Button>
             </Link>
           </Form>
         </div>

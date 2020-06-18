@@ -66,7 +66,7 @@ const CollectionEdit = (props) => {
   }
 
   return (
-    <div>
+    <div className="col-edit-div">
       <h1>Edit your Collection</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row} controlId="formPlaintextPassword">

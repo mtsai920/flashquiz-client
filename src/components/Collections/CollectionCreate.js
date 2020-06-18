@@ -52,7 +52,7 @@ const CollectionCreate = (props) => {
   }
 
   return (
-    <div>
+    <div className="col-create-div">
       <h1>Create a Collection</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group as={Row} controlId="formPlaintextPassword">
