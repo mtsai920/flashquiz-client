@@ -25,7 +25,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="navbar sticky-top" variant="light" expand="md">
     <Navbar.Brand href="#" className="navbar-brand">
-      FlashQuiz
+      FlashQuiz <i className="fa fa-pencil-square"></i>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

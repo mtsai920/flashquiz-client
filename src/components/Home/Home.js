@@ -6,7 +6,7 @@ const Home = function () {
   return (
     <div className="home-div">
       <div>
-        <h1>Welcome to FlashQuiz</h1>
+        <h1>Welcome to FlashQuiz <i className="fa fa-pencil-square"></i></h1>
         <div>
           <h3 className="home-h3">A flashcard application for all of your studying needs. Sign up or sign in to get started.</h3>
         </div>
