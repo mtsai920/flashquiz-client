@@ -23,7 +23,7 @@ html, #root {
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
 }
 
-* {
+:not(.flip-card) {
   font-family: 'Suez One', serif;
 }
 
@@ -83,6 +83,7 @@ hr {
 
 .home-div {
   margin: 0 20px;
+  margin-top: 7%;
   text-align: center;
 }
 
@@ -159,7 +160,7 @@ hr {
 
 .flip-card {
   background-color: transparent;
-  border: 1px solid $dark-blue;
+  border: 1px solid $dark-gray;
   height: 225px;
   margin-left: 20%;
   margin-top: 2rem;
