@@ -102,6 +102,9 @@ const CardShow = (props) => {
             value={card.definition}
             onChange={handleChange}
             required />
+          <Form.Text>
+            Max length 350 characters
+          </Form.Text>
         </Form.Group>
         <Button variant="light" type="submit">Update Card</Button>
         <Button variant="light" className="card-show-delete" onClick={destroy}>Delete</Button>

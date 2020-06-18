@@ -197,6 +197,9 @@ const CollectionShow = (props) => {
               value={card.definition}
               onChange={handleChange}
               required />
+            <Form.Text>
+              Max length 350 characters
+            </Form.Text>
           </Form.Group>
           <Button variant="dark" type="submit">Create Card</Button>
         </Form>

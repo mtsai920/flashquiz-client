@@ -64,6 +64,9 @@ class SignUp extends Component {
                 placeholder="Enter email"
                 onChange={this.handleChange}
               />
+              <Form.Text>
+                Please use fake emails and passwords!
+              </Form.Text>
             </Form.Group>
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
