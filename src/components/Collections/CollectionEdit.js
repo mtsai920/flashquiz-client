@@ -25,7 +25,13 @@ const CollectionEdit = (props) => {
       }
     })
       .then(res => setCollection(res.data.collection))
-      .catch(console.err)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to retrieve your collection due to ' + err.message
+        })
+      })
   }, [])
 
   const handleSubmit = event => {

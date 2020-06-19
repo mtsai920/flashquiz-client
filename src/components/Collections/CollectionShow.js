@@ -58,7 +58,13 @@ const CollectionShow = (props) => {
       }
     })
       .then(res => setCards(res.data.cards))
-      .catch(console.err)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to retrieve all your cards due to ' + err.message
+        })
+      })
   }, [])
 
   const getCards = () => {
@@ -70,7 +76,13 @@ const CollectionShow = (props) => {
       }
     })
       .then(res => setCards(res.data.cards))
-      .catch(console.err)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to retrieve all your cards due to ' + err.message
+        })
+      })
   }
 
   // Submit function to create card
@@ -92,7 +104,13 @@ const CollectionShow = (props) => {
         variant: 'success',
         message: 'Card created! It has been added to the bottom of the page. '
       }))
-      .catch(console.error)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to create your card due to ' + err.message
+        })
+      })
   }
 
   // Function to delete collection

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const CollectionIndex = (props) => {
   const [collections, setCollections] = useState([])
 
-  const { user } = props
+  const { user, msgAlert } = props
 
   useEffect(() => {
     axios({
@@ -17,7 +17,13 @@ const CollectionIndex = (props) => {
       }
     })
       .then(res => setCollections(res.data.collections))
-      .catch(console.error)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to retrieve your collections due to ' + err.message
+        })
+      })
   }, [])
 
   if (collections.length === 0) {

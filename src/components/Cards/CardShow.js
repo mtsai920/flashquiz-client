@@ -6,8 +6,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const CardShow = (props) => {
-  // console.log(props)
-
   const [card, setCard] = useState({
     term: '',
     definition: '',
@@ -29,7 +27,13 @@ const CardShow = (props) => {
       }
     })
       .then(res => setCard(res.data.card))
-      .catch(console.err)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to retrieve card information due to ' + err.message
+        })
+      })
   }, [])
 
   const destroy = event => {
@@ -48,7 +52,13 @@ const CardShow = (props) => {
           message: 'Card has been deleted.'
         })
       })
-      .catch(console.err)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to delete card due to: ' + err.message
+        })
+      })
   }
 
   const onSubmit = event => {
@@ -69,7 +79,13 @@ const CardShow = (props) => {
           message: 'Card has been successfully updated.'
         })
       })
-      .catch(console.err)
+      .catch((err) => {
+        msgAlert({
+          heading: 'Uh oh!',
+          variant: 'danger',
+          message: 'Failed to update card due to ' + err.message
+        })
+      })
   }
 
   const handleChange = event => {
