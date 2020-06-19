@@ -14,7 +14,7 @@ If you want to run your server, use `npm start`.
 
 ### Acknowledgements
 
-A HUGE thank you to [Esat Ozen](https://github.com/ozenesat), who helped me solve the many frontend and backend bugs I had. I would not have been able to finish this project without your help! 
+A HUGE thank you to [Esat Ozen](https://github.com/ozenesat), who helped me solve the many frontend and backend bugs I had. I would not have been able to finish this project without your help!
 
 ### Development Process
 
