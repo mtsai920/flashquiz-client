@@ -4,14 +4,14 @@
 
 // --------- Colors --------- //
 
-$link: #1C448E;
+$link: #1c448e;
 $link-hover: #183977;
 $white: #fff;
 $white-header: rgba(244, 244, 248, .7);
 $coll-div: rgba(244, 244, 248, .5);
 $dark-blue: #032b43;
-$dark-gray: #1F1F1F;
-$background: #8A9CA8;
+$dark-gray: #1f1f1f;
+$background: #8a9ca8;
 $yellow: #F4B860;
 $orange: #FAC05E;
 $black: #000;
@@ -20,7 +20,7 @@ $black: #000;
 
 html, #root {
   background-color: $background;
-  background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+  background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
 }
 
 * {
