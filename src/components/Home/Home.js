@@ -11,10 +11,10 @@ const Home = function () {
           <h3 className="home-h3">A flashcard application for all of your studying needs. Sign up or sign in to get started.</h3>
         </div>
         <Link to={'/sign-up'}>
-          <Button variant="light" size="lg">Sign Up</Button>
+          <Button id="sign-up" variant="light" size="lg">Sign Up</Button>
         </Link>
         <Link className="auth-button" to={'/sign-in'}>
-          <Button variant="light" size="lg">Sign In</Button>
+          <Button id="sign-in" variant="light" size="lg">Sign In</Button>
         </Link>
       </div>
     </div>

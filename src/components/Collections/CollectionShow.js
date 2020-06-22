@@ -183,10 +183,10 @@ const CollectionShow = (props) => {
           <h2>{collection.description}</h2>
         </div>
         <div className="show-col-buttons">
-          <Button variant="dark" onClick={destroy}>Delete</Button>
+          <Button id="delete-collection" variant="dark" onClick={destroy}>Delete</Button>
           <br />
           <Link to={`${match.params.id}/edit`}>
-            <Button variant="dark" className="show-col-edit">Edit</Button>
+            <Button id="edit-collection" variant="dark" className="show-col-edit">Edit</Button>
           </Link>
           <br />
           <Link to={'/collections'}>
@@ -198,7 +198,7 @@ const CollectionShow = (props) => {
         <hr />
         <h3>Create a Card</h3>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formGroupEmail">
+          <Form.Group controlId="card-term">
             <Form.Label>Term</Form.Label>
             <Form.Control
               type="text"
@@ -207,7 +207,7 @@ const CollectionShow = (props) => {
               onChange={handleChange}
               required />
           </Form.Group>
-          <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Group controlId="card-definition">
             <Form.Label>Definition</Form.Label>
             <Form.Control as="textarea" rows="3"
               maxLength="350"

@@ -55,7 +55,7 @@ const CollectionCreate = (props) => {
     <div className="col-create-div">
       <h1>Create a Collection</h1>
       <Form onSubmit={handleSubmit}>
-        <Form.Group as={Row} controlId="formPlaintextPassword">
+        <Form.Group as={Row} controlId="collection-title">
           <Form.Label column sm="2">
             Title
           </Form.Label>
@@ -70,7 +70,7 @@ const CollectionCreate = (props) => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} controlId="formPlaintextPassword">
+        <Form.Group as={Row} controlId="collection-description">
           <Form.Label column sm="2">
             Description
           </Form.Label>
@@ -84,7 +84,7 @@ const CollectionCreate = (props) => {
             />
           </Col>
         </Form.Group>
-        <Button variant="light" type="submit">Create</Button>
+        <Button id="collection-create" variant="light" type="submit">Create</Button>
       </Form>
     </div>
   )
