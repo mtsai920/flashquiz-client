@@ -160,8 +160,9 @@ hr {
 
 .flip-card {
   background-color: transparent;
-  border: 1px solid $dark-gray;
-  height: 225px;
+  border: 2px solid $dark-gray;
+  border-radius: 5px;
+  height: 260px;
   margin-left: 20%;
   margin-top: 2rem;
   perspective: 1000px;
@@ -184,6 +185,7 @@ hr {
 .flip-card-front,
 .flip-card-back {
   backface-visibility: hidden;
+  border-radius: 5px;
   height: 100%;
   position: absolute;
   width: 100%;

@@ -154,7 +154,7 @@ const CollectionShow = (props) => {
             <h3>{card.term}</h3>
           </div>
           <div className="flip-card-back">
-            <h4>{card.definition}</h4>
+            <h5>{card.definition}</h5>
           </div>
         </div>
       </Link>
