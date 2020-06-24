@@ -1,5 +1,8 @@
 {
-  "extends": ["plugin:react/recommended", "standard"],
+  "extends": [
+    "plugin:react/recommended", "standard",
+    "plugin:cypress/recommended"
+  ],
   "root": true,
   "parser": "babel-eslint",
   "settings": {

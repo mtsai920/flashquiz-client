@@ -219,7 +219,7 @@ const CollectionShow = (props) => {
               Max length 350 characters
             </Form.Text>
           </Form.Group>
-          <Button variant="dark" type="submit">Create Card</Button>
+          <Button id="create-card" variant="dark" type="submit">Create Card</Button>
         </Form>
         <hr />
       </div>
