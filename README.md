@@ -28,9 +28,9 @@ Overall, it was a very rewarding experience. I hope to work more with React in m
 
 ### Tests
 
-There are a few tests that have been created for this application that you can run should you decide you want to. They are located in the root file `tests`. In order to run them, simply type `node tests/<test-file>/js`. These are simple, rudimentary automated tests that check if you can login, sign up, or create a collection.
+There are a few tests that have been created for this application that you can run should you decide you want to. They are located in the root file `tests`. In order to run them, simply type `node tests/<test-file>/.js`. These are simple, rudimentary automated tests that check if you can login, sign up, or create a collection.
 
-There are also tests being created with Cypress that are currently-in-progress (the first of which can be see in the `cypress/integration/login.js` file). These include assertions so if they fail at any point you can follow along and see what went wrong. Installation details for Cypress can be found [here](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements).
+There are also tests being created with Cypress that are currently being developed. These include assertions so if they fail at any point you can follow along and see what went wrong. Installation details for Cypress can be found [here](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements).
 
 ### Fixes for Future Iterations
 
