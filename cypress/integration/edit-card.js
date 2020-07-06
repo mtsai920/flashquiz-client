@@ -38,4 +38,9 @@ describe('Creating a card', function () {
     // Card should appear at the bottom of the screen
     cy.get('.flip-card').should('be.visible')
   })
+
+  // Clicking on card
+  it('Selects card', function () {
+    cy.get('.flip-card').last().click()
+  })
 })
